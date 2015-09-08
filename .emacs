@@ -18,7 +18,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
+    (hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
@@ -106,3 +106,18 @@
 ;;(setq sr-speedbar-right-side nil)
 (global-set-key (kbd "C-c <C-return>") 'sr-speedbar-toggle)
 (setq speedbar-use-images nil)
+
+;; ----- ace jump
+(global-set-key (kbd "<escape> SPC") 'ace-jump-word-mode)
+(global-set-key (kbd "<escape> l") 'ace-jump-line-mode)
+(global-set-key (kbd "<escape> c") 'ace-jump-char-mode)
+
+;; ----- title name
+(setq frame-title-format "emacs@%b")
+
+;; ----- eliminate long 'yes' or 'no' prompts
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
+;; ----- auto load .el in "~/my-init"
+(mapc 'load (directory-files "~/my-init" t "\\.el$"))
