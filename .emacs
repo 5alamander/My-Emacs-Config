@@ -18,7 +18,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
+    (indent-guide popup which-key guide-key hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)

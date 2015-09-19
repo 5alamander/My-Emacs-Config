@@ -112,24 +112,79 @@ _h_tml    ^ ^         ^ ^             _A_SCII:
 (with-eval-after-load "org"
   (define-key org-mode-map "<"
     (lambda () (interactive)
-      (if (looking-back "^")		; if it is the begining of the line
-          (hydra-org-template/body)
+      (if (and
+	   (looking-back "<")
+	   (not (looking-back "<<")));(looking-back "^")
+          (progn
+	    (delete-backward-char 1)
+	    (hydra-org-template/body))	    
         (self-insert-command 1)))))	; else self insert
 
-
 ;; -------------------------------------------------------
-;; vi-move
+;; vi-move.
 (defhydra hydra-vi (:pre (set-cursor-color "#ffffff")
 			 :post (progn
 				 (set-cursor-color "#4f94cd")
 				 (message "Thank you, come again.")))
   "vi"
-  ("l" forward-char)
-  ("j" backward-char)
-  ("k" next-line)
-  ("i" previous-line)
-  ("q" nil "quit"))
+  ;; move
+  ("l" forward-char "forward")
+  ("j" backward-char "backward")
+  ("k" next-line "down")
+  ("i" previous-line "up")
+  ("a" beginning-of-line nil)
+  ("e" end-of-line nil)
+  
+  ;; move in word
+  ("L" forward-word nil)
+  ("J" backward-word nil)
+  ("K" forward-sentence nil)
+  ("I" backward-sentence nil)
+  ("p" backward-paragraph nil)
+  ("n" forward-paragraph nil)	
+  
+  ;; move in sexp
+  ("M-l" forward-sexp nil)
+  ("M-j" backward-sexp nil)
+  ("M-k" down-list nil)
+  ("M-i" backward-up-list nil)
+  
+  ("SPC" nil "quit"))
 (global-set-key (kbd "<f8>") 'hydra-vi/body)
 
+;; move, 'ijkl'.
+;; move word, M 'jl'. 
+;; paragraph move [, ], --- M-{, M-} ,
+;; sexp f, b, up, down
+
+;; -------------------------------------------------------
+(defhydra hydra-em-move (:pre (set-cursor-color "#ffffff")
+			 :post (progn
+				 (set-cursor-color "#4f94cd")
+				 (message "Thank you, come again.")))
+  "emacs move"
+  ;; move
+  ("f" forward-char "forward")
+  ("b" backward-char "backward")
+  ("n" next-line "down")
+  ("p" previous-line "up")
+  ("a" beginning-of-line nil)
+  ("e" end-of-line nil)
+  
+  ;; move in word
+  ("L" forward-word nil)
+  ("J" backward-word nil)
+  ("K" forward-sentence nil)
+  ("I" backward-sentence nil)
+  ("p" backward-paragraph nil)
+  ("n" forward-paragraph nil)	
+  
+  ;; move in sexp
+  ("M-l" forward-sexp nil)
+  ("M-j" backward-sexp nil)
+  ("M-k" down-list nil)
+  ("M-i" backward-up-list nil)
+  
+  ("SPC" nil "quit"))
 
 (provide 'hydra-init)

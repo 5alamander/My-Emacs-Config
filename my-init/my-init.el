@@ -53,7 +53,12 @@
 
 ;; ----- speedbar options
 ;;(setq sr-speedbar-right-side nil)
-(global-set-key (kbd "C-c <C-return>") 'sr-speedbar-toggle)
+(defun sr-speedbar-toggle-select ()
+  (interactive)
+  (sr-speedbar-toggle)
+  (if (sr-speedbar-exist-p)
+      (sr-speedbar-select-window)))
+(global-set-key (kbd "C-c <C-return>") 'sr-speedbar-toggle-select)
 (setq speedbar-use-images nil)
 
 ;; ----- ace jump
@@ -62,10 +67,15 @@
 (global-set-key (kbd "<escape> c") 'ace-jump-char-mode)
 
 ;; ----- title name
-(setq frame-title-format "emacs@%b")
+(setq frame-title-format "Salamander@%b")
 
 ;; ----- eliminate long 'yes' or 'no' prompts
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; ----- which key 'guide-key'
+(which-key-mode)
+
+;; ----- indent guide
+(indent-guide-global-mode)
 
 (provide 'my-init)
