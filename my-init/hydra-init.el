@@ -30,6 +30,7 @@
         (windmove-find-other-window 'up))
       (shrink-window arg)
     (enlarge-window arg)))
+
 ;; ----------------------------------------
 ;; set keys
 (global-set-key
@@ -225,5 +226,8 @@ _h_tml    ^ ^         ^ ^             _A_SCII:
   ("e" hydra-end-of-sexp "e-sexp")	 ;new defined
   
   ("SPC" nil "quit"))
+
+;;; search
+
 
 (provide 'hydra-init)

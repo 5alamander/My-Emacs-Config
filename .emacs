@@ -21,10 +21,13 @@
  '(neo-theme (quote ascii))
  '(package-selected-packages
    (quote
-    (neotree company rainbow-delimiters helm yasnippet paredit cider highlight-parentheses google-this coffee-mode indent-guide popup which-key guide-key hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
+    (tabbar-ruler tabbar multiple-cursors neotree company rainbow-delimiters helm yasnippet paredit cider highlight-parentheses google-this coffee-mode indent-guide popup which-key guide-key hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
+ '(tabbar-background-color nil)
+ '(tabbar-mode t nil (tabbar))
+ '(tabbar-use-images nil)
  '(tool-bar-mode nil)
  '(window-divider-default-places t))
 (custom-set-faces
@@ -55,7 +58,12 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "magenta"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "deep sky blue"))))
  '(show-paren-match ((t (:background "sea green"))))
- '(show-paren-mismatch ((t (:background "red" :foreground "white")))))
+ '(show-paren-mismatch ((t (:background "red" :foreground "white"))))
+ '(tabbar-unselected ((t (:inherit nil :stipple nil :background "steel blue" :foreground "#282C34" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "outline" :family "Consolas"))))
+ '(tabbar-unselected-modified ((t (:inherit tabbar-unselected :foreground "dark red" :weight bold))))
+ '(window-divider ((t (:foreground "gray10"))))
+ '(window-divider-first-pixel ((t (:foreground "gray10"))))
+ '(window-divider-last-pixel ((t (:foreground "gray10")))))
 
 ;;------ org-mode GTD state
 (setq org-todo-keywords

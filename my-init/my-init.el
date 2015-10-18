@@ -5,18 +5,8 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;;------ autopair
-;(require 'autopair)			
-;(autopair-global-mode) ;; to enable in all buffers
-
 ;;------ window 
-;;(set-foreground-color "grey")
-;;(set-background-color "black")
-;;(set-cursor-color "gold1")
-;;(set-mouse-color "gold1")
-
 (window-divider-mode t)
-
 ;;theme color
 (load-theme 'atom-one-dark t)
 (global-hl-line-mode)			;highlight current line
@@ -24,7 +14,7 @@
 (set-face-foreground 'highlight nil)
 
 ;;------ operation
-(show-paren-mode t)		      ; match bracketed
+(show-paren-mode t)		      ; match 'parentheses'
 (global-set-key
  (kbd "<f10>")
  (lambda ()
@@ -36,25 +26,35 @@
 	  (lambda () (paredit-mode) (rainbow-delimiters-mode)))
 (add-hook 'clojure-mode-hook
 	  (lambda () (paredit-mode) (rainbow-delimiters-mode)))
+(add-hook 'cider-repl-mode-hook
+	  (lambda () (paredit-mode) (rainbow-delimiters-mode)))
 
 (setq default-directory "~/");; set defualt file path
 
 (setq column-number-mode t);; show column number
 (setq line-number-mode t);; show line number
-(global-linum-mode t);; show line number in left side
+(global-linum-mode t);; show 'line-number' in left side
+(menu-bar-mode -1);; hide 'menu-bar'
+(tabbar-mode t)
+(tabbar-ruler-up t);; show 'tabbar'
 
 (setq scroll-margin 3 scroll-conservatively 10000);; scroll 3 lines near edge
 
 (setq visible-bell t);; close the wrong hint
 
 ;;------ key binds
-(global-set-key (kbd "C->") 'other-window)   ; may delete
+;;; multiple cursor
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;;; window
 (global-set-key (kbd "C-S-i") 'windmove-up)
 (global-set-key (kbd "C-S-k") 'windmove-down)
 (global-set-key (kbd "C-S-j") 'windmove-left)
 (global-set-key (kbd "C-S-l") 'windmove-right)
-(global-set-key (kbd "C-S-u") 'previous-buffer)
-(global-set-key (kbd "C-S-o") 'next-buffer)
+;;; buffer
+(global-set-key (kbd "C-S-u") 'tabbar-backward)
+(global-set-key (kbd "C-S-o") 'tabbar-forward)
+;;; scroll
 (global-set-key (kbd "C-)") 'scroll-left)    ; may change this
 (global-set-key (kbd "C-x >") 'scroll-left)  ; switch with right
 (global-set-key (kbd "C-(") 'scroll-right)   ; may delete this
@@ -125,6 +125,7 @@
 (global-set-key (kbd "C-z f") 'helm-find-files)
 (global-set-key (kbd "C-z i") 'helm-imenu)
 (global-set-key (kbd "C-z o") 'helm-occur)
+(global-set-key (kbd "C-z t") 'neotree-toggle)
 
 ;; ----- speedbar options
 ;;(setq sr-speedbar-right-side nil)
@@ -141,8 +142,7 @@
 	)
     (progn
      (sr-speedbar-refresh)		;refresh after closed
-     )
-    ))
+     )))
 (global-set-key (kbd "C-c <C-return>") 'sr-speedbar-toggle-select)
 
 (setq speedbar-use-images nil)		;show without images
