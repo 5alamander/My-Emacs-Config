@@ -10,18 +10,24 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(autopair-blink nil)
+ '(bmkp-last-as-first-bookmark-file "d:\\Emacs\\Config\\.emacs.d\\bookmarks")
  '(case-fold-search nil)
+ '(coffee-tab-width 2)
  '(column-number-mode t)
  '(company-idle-delay 0.3)
  '(company-show-numbers t)
  '(custom-safe-themes
    (quote
     ("3ed645b3c08080a43a2a15e5768b893c27f6a02ca3282576e3bc09f3d9fa3aaa" "91faf348ce7c8aa9ec8e2b3885394263da98ace3defb23f07e0ba0a76d427d46" default)))
+ '(global-linum-mode t)
  '(inhibit-startup-screen t)
+ '(linum-delay t)
+ '(linum-format (quote dynamic))
  '(neo-theme (quote ascii))
  '(package-selected-packages
    (quote
-    (tabbar-ruler tabbar multiple-cursors neotree company rainbow-delimiters helm yasnippet paredit cider highlight-parentheses google-this coffee-mode indent-guide popup which-key guide-key hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
+    (bookmark+ tabbar-ruler tabbar multiple-cursors neotree company rainbow-delimiters helm yasnippet paredit cider highlight-parentheses google-this coffee-mode indent-guide popup which-key guide-key hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)

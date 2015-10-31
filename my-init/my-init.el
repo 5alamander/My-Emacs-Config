@@ -149,6 +149,12 @@
 
 ;; ----- ace jump
 (global-set-key (kbd "<escape> SPC") 'ace-jump-word-mode) ;may delete this
+
+(require 'bookmark+)
+(define-key key-translation-map (kbd "<escape> p") (kbd "C-x p"))
+(define-key key-translation-map (kbd "<escape> j") (kbd "C-x j"))
+(define-key key-translation-map (kbd "<escape> r") (kbd "C-x r"))
+
 (global-set-key (kbd "M-g SPC") 'ace-jump-word-mode)
 (global-set-key (kbd "M-g g") 'ace-jump-line-mode)
 (global-set-key (kbd "M-g c") 'ace-jump-char-mode)
@@ -182,6 +188,13 @@
 (with-eval-after-load "js"
   (setq js-indent-level 2))
 
+;;; ----- common hook
+(defvar common-hook-modes '(coffee-mode js-mode))
+(dolist (mode common-hook-modes)
+  (add-hook (intern (concat (symbol-name mode) "-hook"))
+	    (lambda ()
+	      (rainbow-delimiters-mode)
+	      (autopair-mode 1))))
 ;; ----- scheme
 ; (setq scheme-program-name "mit-scheme") 
 ; this did not work well in 'mit-scheme'
