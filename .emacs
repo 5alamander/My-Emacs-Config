@@ -27,7 +27,7 @@
  '(neo-theme (quote ascii))
  '(package-selected-packages
    (quote
-    (bookmark+ tabbar-ruler tabbar multiple-cursors neotree company rainbow-delimiters helm yasnippet paredit cider highlight-parentheses google-this coffee-mode indent-guide popup which-key guide-key hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
+    (markdown-mode+ markdown-mode csharp-mode bookmark+ tabbar-ruler tabbar multiple-cursors neotree company rainbow-delimiters helm yasnippet paredit cider highlight-parentheses google-this coffee-mode indent-guide popup which-key guide-key hydra ace-jump-mode sr-speedbar smex org atom-one-dark-theme atom-dark-theme autopair auto-overlays)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)

@@ -28,6 +28,8 @@
 	  (lambda () (paredit-mode) (rainbow-delimiters-mode)))
 (add-hook 'cider-repl-mode-hook
 	  (lambda () (paredit-mode) (rainbow-delimiters-mode)))
+(add-hook 'eshell-mode-hook
+	  (lambda () (paredit-mode)))
 
 (setq default-directory "~/");; set defualt file path
 
@@ -108,6 +110,7 @@
 ;;   "Source for Yasnippet.")
 ;;; ------ company ------
 (add-hook 'after-init-hook 'global-company-mode)
+(require 'company)
 (setq company-minimum-prefix-length 2)
 (setq company-idle-delay 0.3)
 
@@ -174,6 +177,44 @@
 
 ;; ----- ido
 (ido-mode 1)
+;;; yas-ido
+(yas-global-mode 1)			; reset the yas tab
+(define-key yas-minor-mode-map [(tab)]        nil)
+(define-key yas-minor-mode-map (kbd "TAB")    nil)
+(define-key yas-minor-mode-map (kbd "<tab>")  nil)
+(defun yas-ido-expand ()
+  "Lets you select (and expand) a yasnippet key"
+  (interactive)
+    (let ((original-point (point)))
+      (while (and
+              (not (= (point) (point-min) ))
+              (not
+               (string-match "[[:space:]\n]" (char-to-string (char-before)))))
+        (backward-word 1))
+    (let* ((init-word (point))
+           (word (buffer-substring init-word original-point))
+           (list (yas-active-keys)))
+      (goto-char original-point)
+      (let ((key (remove-if-not
+                  (lambda (s) (string-match (concat "^" word) s)) list)))
+        (if (= (length key) 1)
+            (setq key (pop key))
+          (setq key (ido-completing-read "key: " list nil nil word)))
+        (delete-char (- init-word original-point))
+        (insert key)
+        (yas-expand)))))
+(define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-ido-expand)
+;; Add yasnippet support for all company backends
+;; https://github.com/syl20bnr/spacemacs/pull/179
+(defvar company-mode/enable-yas t
+  "Enable yasnippet for all backends.")
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas)
+	  (and (listp backend) (member 'company-yasnippet backend)))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
 ;; ----- Languages
 (require 'speedbar)
@@ -189,7 +230,7 @@
   (setq js-indent-level 2))
 
 ;;; ----- common hook
-(defvar common-hook-modes '(coffee-mode js-mode))
+(defvar common-hook-modes '(coffee-mode js-mode csharp-mode))
 (dolist (mode common-hook-modes)
   (add-hook (intern (concat (symbol-name mode) "-hook"))
 	    (lambda ()

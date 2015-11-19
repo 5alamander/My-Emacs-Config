@@ -1,0 +1,168 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("e:/clojureWorkSpace/hearthstone/resources/" . "output/")
+ ("e:/org-mode/unity/" . "turnBase-system/")
+ ("e:/unityGame/projects/pokemon_Hoodle/Assets/" . "jurassic/")
+ ("e:/unityGame/projects/pokemon_Hoodle/" . "Assets/")
+ ("e:/unityGame/projects/" . "pokemon_Hoodle/")
+ ("e:/unityGame/" . "projects/")
+ ("e:/jsGame/cocos/" . "gameElement/")
+ ("e:/jsGame/" . "cocos/")
+ ("e:/clojureWorkSpace/hearthstone/src/" . "hearthstone/")
+ ("e:/clojureWorkSpace/hearthstone/" . "src/")
+ ("e:/clojureWorkSpace/caves/src/caves/entities/" . "aspects/")
+ ("e:/clojureWorkSpace/caves/src/caves/" . "ui/")
+ ("e:/clojureWorkSpace/caves/src/" . "caves/")
+ ("e:/clojureWorkSpace/caves/test/" . "caves/")
+ ("e:/clojureWorkSpace/caves/" . "src/")
+ ("e:/clojureWorkSpace/clojure-hello/src/clojure_hello/" . "sicp/")
+ ("e:/clojureWorkSpace/clojure-hello/src/" . "clojure_hello/")
+ ("e:/clojureWorkSpace/clojure-hello/" . "src/")
+ ("e:/clojureWorkSpace/" . "hearthstone/")
+ ("c:/Users/User/" . ".lein/")
+ ("c:/Users/" . "User/")
+ ("c:/" . "Users/")
+ ("e:/org-mode/" . "js/")
+ ("d:/Emacs/Config/" . "my-init/")
+ ("e:/" . "unityGame/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "e:/clojureWorkSpace/hearthstone/src/hearthstone/"
+ "e:/org-mode/js/"
+ "e:/org-mode/clojure/"
+ "d:/Emacs/Config/my-init/"
+ "e:/clojureWorkSpace/hearthstone/resources/output/"
+ "e:/org-mode/unity/turnBase-system/"
+ "e:/org-mode/unity/"
+ "e:/unityGame/projects/pokemon_Hoodle/Assets/jurassic/"
+ "d:/Emacs/Config/"
+ "e:/org-mode/"
+ "e:/org-mode/readingNote/"
+ "e:/jsGame/cocos/gameElement/"
+ "e:/org-mode/sicp/"
+ "e:/clojureWorkSpace/hearthstone/"
+ "e:/clojureWorkSpace/caves/src/caves/ui/"
+ "e:/clojureWorkSpace/caves/src/caves/"
+ "e:/clojureWorkSpace/clojure-hello/src/clojure_hello/"
+ "e:/org-mode/emacs/"
+ "e:/clojureWorkSpace/caves/src/caves/entities/"
+ "e:/clojureWorkSpace/caves/src/caves/entities/aspects/"
+ "e:/clojureWorkSpace/caves/test/caves/"
+ "e:/clojureWorkSpace/caves/"
+ "e:/clojureWorkSpace/clojure-hello/"
+ "e:/clojureWorkSpace/clojure-hello/src/clojure_hello/game/"
+ "e:/clojureWorkSpace/clojure-hello/src/clojure_hello/sicp/"
+ "c:/Users/User/.lein/"
+ "e:/clojureWorkSpace/"
+ "e:/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "flatten_script.clj"
+ "game.clj"
+ "jurassic.org"
+ "hearthston.org"
+ "jurassic.md"
+ "ibase.clj"
+ "my-window.el"
+ "test.favg"
+ "avg-document.org"
+ "cards.clj"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("d:/Emacs/Config/" (22091 19180 0 0) "News/" "my-init/" ".newsrc.eld" ".newsrc" ".gitignore" ".git/" ".emacs~" ".emacs.d/" ".emacs-bmk-bmenu-state.el~" ".emacs-bmk-bmenu-state.el" ".emacs" ".coffee_history" "../" "./")
+
+ ("e:/org-mode/js/" (22091 5851 0 0) "test.js~" "test.js" "test.html" "jurassic_js.html" "jurassic.org~" "jurassic.org" "jurassic.md~" "jurassic.md.html" "jurassic.md" "../" "./")
+
+ ("e:/clojureWorkSpace/hearthstone/" (22082 46571 0 0) "test/" "target/" "src/" "resources/" "README.md" "project.clj~" "project.clj" "LICENSE" "doc/" "dev-resources/" "CHANGELOG.md" ".nrepl-port" ".hgignore" ".gitignore" "../" "./")
+
+ ("e:/org-mode/unity/turnBase-system/" (22083 7768 0 0) "avg-document.org~" "avg-document.org" "../" "./")
+
+ ("e:/clojureWorkSpace/hearthstone/resources/output/" (22090 54342 0 0) "test1.favg" "test.favg" "b.txt" "a.txt" "../" "./")
+
+ ("e:/clojureWorkSpace/hearthstone/src/hearthstone/" (22090 63705 0 0) "ring.clj~" "ring.clj" "other.clj~" "other.clj" "net.clj~" "net.clj" "ibase.clj~" "ibase.clj" "hero.clj~" "hero.clj" "game.clj~" "game.clj" "flatten_script.clj~" "flatten_script.clj" "flatten-script.clj~" "events.clj~" "events.clj" "core.clj~" "core.clj" "cards.clj~" "cards.clj" "buffs.clj~" "buffs.clj" "../" "./")
+
+ ("e:/org-mode/" (22091 2674 0 0) "unity/" "test.org~" "test.org" "sicp/" "readingNote/" "pokemon_hoodle.org~" "pokemon_hoodle.org" "myOrg.org~" "myOrg.org" "js/" "erlang/" "emacs/" "clojure/" "atom/" "../" "./")
+
+ ("e:/clojureWorkSpace/hearthstone/resources/input/" (22090 54031 0 0) "test.navg~" "test.navg" "outputtest.favg" "../" "./")
+
+ ("d:/Emacs/Config/my-init/" (22090 38630 0 0) "my-window.el~" "my-window.el" "my-init.el~" "my-init.el" "hydra-init.el~" "hydra-init.el" "compile-init.el~" "compile-init.el" "../" "./")
+
+ ("e:/clojureWorkSpace/hearthstone/resources/" (22084 2876 0 0) "scripts/" "output/" "mycode.clj" "input/" "../" "./")
+
+ ("e:/org-mode/unity/" (22075 64439 0 0) "unityAds.org~" "unityAds.org" "turnBase-system/" "CSharp.org~" "CSharp.org" "cast.org~" "cast.org" "base.org~" "base.org" "../" "./")
+
+ ("e:/org-mode/clojure/" (22079 63898 0 0) "hearthston.org~" "hearthston.org" "../" "./")
+
+ ("e:/unityGame/projects/pokemon_Hoodle/Assets/jurassic/" (22071 27564 0 0) "Yellow Material.mat.meta" "Yellow Material.mat" "testjs.txt~" "testjs.txt.meta" "testjs.txt" "ScriptWindowGUISkin.guiskin.meta" "ScriptWindowGUISkin.guiskin" "ReadMe.txt.meta" "ReadMe.txt" "Purple Material.mat.meta" "Purple Material.mat" "License.txt.meta" "License.txt" "JurassicExampleGUI.cs.meta" "JurassicExampleGUI.cs" "JurassicExampleExecute.cs.meta" "JurassicExampleExecute.cs" "JurassicExample.unity.meta" "JurassicExample.unity" "Jurassic.dll.meta" "Jurassic.dll" "JavascriptTest.unity.meta" "JavascriptTest.unity" "Example JavaScripts.meta" "Example JavaScripts/" "../" "./")
+
+ ("e:/jsGame/cocos/gameElement/" (22066 10213 0 0) "vectorEffect.js.map" "vectorEffect.js" "vectorEffect.coffee" "trigger.js.map" "trigger.js" "trigger.coffee" "repl.coffee" "pokemonCard.js.map" "pokemonCard.js" "pokemonCard.coffee~" "pokemonCard.coffee" "../" "./")
+
+ ("e:/org-mode/readingNote/" (21987 7188 0 0) "code future.org~" "code future.org" "../" "./")
+
+ ("e:/unityGame/projects/pokemon_Hoodle/Assets/" (22060 39884 0 0) "UnityVS.meta" "UnityVS/" "Texture.meta" "Texture/" "Script.meta" "Script/" "Scene.meta" "Scene/" "Resources.meta" "Resources/" "Prefabs.meta" "Prefabs/" "Plugins.meta" "Plugins/" "jurassic.meta" "jurassic/" "Editor.meta" "Editor/" "BlockMateral.physicsMaterial2D.meta" "BlockMateral.physicsMaterial2D" "Animation.meta" "Animation/" "../" "./")
+
+ ("e:/unityGame/projects/pokemon_Hoodle/" (22062 48467 0 0) "UnityVS.pokemon_Hoodle.sln" "UnityVS.pokemon_Hoodle.CSharp.Plugins.csproj" "UnityVS.pokemon_Hoodle.CSharp.Editor.csproj" "UnityVS.pokemon_Hoodle.CSharp.csproj" "Temp/" "ProjectSettings/" "pokemon_Hoodle.userprefs" "pokemon_Hoodle.sln" "pokemon_Hoodle-csharp.sln.DotSettings.user" "pokemon_Hoodle-csharp.sln" "obj/" "Library/" "DTAR_08E86330_4835_4B5C_9E5A_61F37AE1A077_DTAR/" "ClassDiagram1.cd" "build/" "Assets/" "Assembly-UnityScript.unityproj" "Assembly-UnityScript-vs.unityproj" "Assembly-CSharp.csproj" "Assembly-CSharp-vs.csproj" "Assembly-CSharp-firstpass.csproj" "Assembly-CSharp-firstpass-vs.csproj" "Assembly-CSharp-Editor.csproj" "Assembly-CSharp-Editor-vs.csproj" ".vs/" "../" "./")
+
+ ("e:/unityGame/projects/" (22025 56173 0 0) "WhiteAndBlack/" "turnBase/" "testParticle/" "SwingCopters/" "Ronin/" "pokemon_Hoodle/" "Ninja Platformer/" "MyPlugin/" "clojure_project/" "AVG_gq/" "../" "./")
+
+ ("e:/unityGame/" (21961 27524 0 0) "projects/" "plugins/" "../" "./")
+
+ ("e:/jsGame/cocos/" (22061 36241 0 0) "gameElement/" "cocosTool/" "../" "./")
+
+ ("e:/jsGame/" (22061 36240 0 0) "jsTool/" "cocos/" "../" "./")
+
+ ("e:/org-mode/sicp/" (22060 11714 0 0) "sicp.org~" "sicp.org" "helloWord.scm~" "helloWord.scm" "clojure.org~" "clojure.org" "../" "./")
+
+ ("c:/Users/User/.lein/" (22056 9840 0 0) "self-installs/" "repl-port" "repl-history" "profiles.clj~" "profiles.clj866280365157374587.bak" "profiles.clj" "../" "./")
+
+ ("e:/org-mode/emacs/" (22047 34363 0 0) "testRun.js~" "testRun.js" "testRun.coffee~" "testRun.coffee" "test2.js" "test.rb~" "test.rb" "learnElisp/" "elisp.el~" "elisp.el" "../" "./")
+
+ ("e:/clojureWorkSpace/clojure-hello/src/clojure_hello/" (22043 8693 0 0) "snake.clj~" "snake.clj" "sicp/" "practice1.clj~" "practice1.clj" "ns.clj" "game/" "core.clj~" "core.clj" "atom.clj~" "atom.clj" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/src/caves/ui/" (22043 16471 0 0) "input.clj~" "input.clj" "drawing.clj~" "drawing.clj" "core.clj~" "core.clj" "../" "./")
+
+ ("e:/clojureWorkSpace/hearthstone/src/" (22043 39362 0 0) "hearthstone/" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/src/caves/" (22043 33894 0 0) "world.clj~" "world.clj" "ui/" "entities/" "core.clj~" "core.clj" "coords.clj~" "coords.clj" "../" "./")
+
+ ("e:/clojureWorkSpace/" (22043 39362 0 0) "src/" "idea_clojure/" "hearthstone/" "clojureWorkSpace.iml" "clojure-work-space.org~" "clojure-work-space.org" "clojure-hello/" "caves/" ".idea/" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/" (22043 12990 0 0) "test/" "target/" "src/" "resources/" "README.md" "project.clj~" "project.clj" "LICENSE" "doc/" "dev-resources/" "CHANGELOG.md" ".nrepl-port" ".idea/" ".hgignore" ".gitignore" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/src/caves/entities/" (22042 31205 0 0) "player.clj~" "player.clj" "lichen.clj~" "lichen.clj" "core.clj~" "core.clj" "aspects/" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/src/caves/entities/aspects/" (22042 19769 0 0) "mobile.clj" "digger.clj" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/test/caves/" (22041 7906 0 0) "core_test.clj~" "core_test.clj" "../" "./")
+
+ ("d:/Emacs/" (21974 36597 0 0) "emacs-bin-w64-20150818-07ebe42.7z" "emacs/" "Config/" "../" "./")
+
+ ("e:/clojureWorkSpace/clojure-hello/src/clojure_hello/game/" (22039 58726 0 0) "hs.clj~" "hs.clj" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/test/" (22040 28935 0 0) "caves/" "../" "./")
+
+ ("e:/clojureWorkSpace/caves/src/" (22040 28935 0 0) "caves/" "../" "./")
+
+ ("e:/clojureWorkSpace/clojure-hello/src/clojure_hello/sicp/" (22038 31201 0 0) "c_1_1.clj" "../" "./")
+
+ ("e:/clojureWorkSpace/clojure-hello/src/" (22029 57052 0 0) "clojure_hello/" "../" "./")
+
+ ("e:/clojureWorkSpace/clojure-hello/" (22036 16125 0 0) "test/" "target/" "src/" "resources/" "README.md" "project.clj~" "project.clj" "my.log" "message.log" "LICENSE" "doc/" "dev-resources/" "CHANGELOG.md" ".nrepl-port" ".hgignore" ".gitignore" "../" "./")
+
+ ("e:/clojureWorkSpace/clojure-hello/resources/" (22029 57052 0 0) "../" "./")
+
+ ("c:/Users/User/" (22029 54531 0 0) "「开始」菜单/" "Videos/" "Templates/" "SendTo/" "Searches/" "Saved Games/" "Recent/" "PrintHood/" "Pictures/" "ntuser.ini" "NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TMContainer00000000000000000002.regtrans-ms" "NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TMContainer00000000000000000001.regtrans-ms" "NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TM.blf" "ntuser.dat.LOG2" "ntuser.dat.LOG1" "NTUSER.DAT" "npm-debug.log" "NetHood/" "My Documents/" "Music/" "Local Settings/" "Links/" "IntelGraphicsProfiles/" "github/" "Favorites/" "Downloads/" "Documents/" "Desktop/" "Cookies/" "Contacts/" "build/" "Application Data/" "AppData/" ".WebStorm10/" ".ssh/" ".oracle_jre_usage/" ".npmrc" ".node-gyp/" ".m2/" ".lein/" ".gitconfig" ".fireball/" ".cnpmrc" ".cnpm/" ".atom/" ".android/" "../" "./")
+
+ ("c:/Users/" (21957 48705 0 0) "User/" "Public/" "desktop.ini" "Default User/" "Default/" "All Users/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

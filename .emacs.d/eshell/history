@@ -1,0 +1,19 @@
+apm search coffee
+(+ 1 1)
+(+ 1 2)
+ls
+node
+(current)
+(+ 1 2)
+(randomize 100)
+(random 100)
+(random 100)
+(random 100)
+(random 100f)
+(random 100)
+ls
+cd sicp
+cd -1
+cd =s.*
+cd -
+node
