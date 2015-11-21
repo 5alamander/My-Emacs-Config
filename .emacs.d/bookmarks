@@ -54,8 +54,8 @@
     (position . 11172))
 #1=(#("hearth-stone-core" 0 17
       (bmkp-full-record #1#))
-    (time 22091 56422 539880 300000)
-    (visits . 2)
+    (time 22095 54725 37384 900000)
+    (visits . 3)
     (filename . "e:/clojureWorkSpace/hearthstone/src/hearthstone/core.clj")
     (front-context-string . "(ns hearthstone.")
     (rear-context-string)

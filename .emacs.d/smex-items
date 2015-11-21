@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ menu-bar-mode
+ describe-coding-system
+ version
  grep
  google-this-mode
  org-md-export-to-markdown
  package-list-packages
- org-md-export-as-markdown
- eshell
- query-replace
 )
 
 ;; ----- smex-data -----
@@ -132,7 +132,7 @@
  (hydra-cs/body . 4)
  (mc/mark-pop . 1)
  (tabbar-ruler-up . 1)
- (menu-bar-mode . 18)
+ (menu-bar-mode . 23)
  (my-swap-buffer-up . 5)
  (previous-buffer . 4)
  (next-buffer . 5)
@@ -182,4 +182,6 @@
  (org-md-export-as-markdown . 1)
  (org-md-export-to-markdown . 2)
  (grep . 2)
+ (version . 1)
+ (describe-coding-system . 2)
 )
