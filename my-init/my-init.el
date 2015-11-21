@@ -1,8 +1,4 @@
-;;; 设置中文字体--微软雅黑
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font)
-		    charset
-		    (font-spec :family "Microsoft YaHei" :size 15)))
+
 ;;------ Melpa
 (require 'package)
 (add-to-list 'package-archives
