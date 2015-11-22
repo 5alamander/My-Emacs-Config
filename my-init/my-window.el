@@ -10,7 +10,7 @@ then run input `lambda' (functor window other-window)"
 	   (error "Minibuffer is inactive"))
 	  (t (funcall functor window other-window)))))
 
-(defun windmove-do-swap-window (dir &optional arg window)
+(defun windmove-do-push-window (dir &optional arg window)
   "move the buffer to the window at direction DIR.
 DIR, ARG, and WINDOW are handled as by `windmove-other-window-loc'.
 If no window is at direction DIR, an error is signaled."
@@ -28,9 +28,17 @@ If no window is at direction DIR, an error is signaled."
      (set-window-buffer window (window-buffer other-window))
      (switch-to-prev-buffer other-window))))
 
+(defun windmove-do-swap-window (dir &optional arg window)
+  (windmove-find-and-run
+   dir arg window
+   (lambda (window other-window)
+     (let ((tbuffer (window-buffer window)))
+       (set-window-buffer window (window-buffer other-window))
+       (set-window-buffer other-window tbuffer)))))
+
 ;; (defun my-swap-buffer-up (&optional arg)
 ;;   (interactive "P")
-;;    (windmove-do-swap-window 'up arg))
+;;    (windmove-do-push-window 'up arg))
 
 ;;; 
 ;;; ----- hydra
@@ -73,18 +81,22 @@ If no window is at direction DIR, an error is signaled."
    ("2" split-window-below nil)
    ("3" split-window-right nil)
    ("0" delete-window nil)
-   ("j" (windmove-do-swap-window 'left) nil)
-   ("k" (windmove-do-swap-window 'down) nil)
-   ("i" (windmove-do-swap-window 'up) nil)
-   ("l" (windmove-do-swap-window 'right) nil)
-   ("J" (windmove-do-grab-window 'left) nil)
-   ("K" (windmove-do-grab-window 'down) nil)
-   ("I" (windmove-do-grab-window 'up) nil)
-   ("L" (windmove-do-grab-window 'right) nil)
-   ("C-S-j" windmove-left nil)
-   ("C-S-k" windmove-down nil)
-   ("C-S-i" windmove-up nil)
-   ("C-S-l" windmove-right nil)
+   ("C-j" (windmove-do-push-window 'left) nil)
+   ("C-k" (windmove-do-push-window 'down) nil)
+   ("C-i" (windmove-do-push-window 'up) nil)
+   ("C-l" (windmove-do-push-window 'right) nil)
+   ("M-j" (windmove-do-grab-window 'left) nil)
+   ("M-k" (windmove-do-grab-window 'down) nil)
+   ("M-i" (windmove-do-grab-window 'up) nil)
+   ("M-l" (windmove-do-grab-window 'right) nil)
+   ("C-M-j" (windmove-do-swap-window 'left) nil)
+   ("C-M-k" (windmove-do-swap-window 'down) nil)
+   ("C-M-i" (windmove-do-swap-window 'up) nil)
+   ("C-M-l" (windmove-do-swap-window 'right) nil)
+   ("j" windmove-left nil)
+   ("k" windmove-down nil)
+   ("i" windmove-up nil)
+   ("l" windmove-right nil)
    ;; ("<left>" windmove-left nil)
    ("<S-left>" hydra-move-splitter-left nil)
    ("<S-down>" hydra-move-splitter-down nil)
