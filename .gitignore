@@ -217,3 +217,7 @@ pip-log.txt
 
 News/
 .coffee_history
+.emacs.d/smex-items
+.emacs.d/ido.last
+.emacs-bmk-bmenu-state.el
+.emacs
