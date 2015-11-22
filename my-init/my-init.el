@@ -46,7 +46,8 @@
 
 (setq scroll-margin 3 scroll-conservatively 10000);; scroll 3 lines near edge
 
-(setq visible-bell t);; close the wrong hint
+;; (setq visible-bell t);; close the wrong hint
+(setq ring-bell-function 'ignore)
 
 ;;------ key binds
 ;;; multiple cursor
