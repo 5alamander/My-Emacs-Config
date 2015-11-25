@@ -36,10 +36,6 @@ If no window is at direction DIR, an error is signaled."
        (set-window-buffer window (window-buffer other-window))
        (set-window-buffer other-window tbuffer)))))
 
-;; (defun my-swap-buffer-up (&optional arg)
-;;   (interactive "P")
-;;    (windmove-do-push-window 'up arg))
-
 ;;; 
 ;;; ----- hydra
 ;; ----------------------------------------

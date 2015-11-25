@@ -75,20 +75,17 @@
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "HANGUP" "|" "DONE" "CANCEL" "TEMP")))
 
-;;------ language
-;;(set-language-environment 'Chinese-GB)
-;;(set-keyboard-coding-system 'utf-8)
-;;(set-clipboard-coding-system 'utf-8)
-;;(set-terminal-coding-system 'utf-8)
-;;(set-buffer-file-coding-system 'utf-8)
-;;(set-default-coding-systems 'utf-8)
-;;(set-selection-coding-system 'utf-8)
-;;(modify-coding-system-alist 'process "*" 'utf-8)
-;;(setq default-process-coding-system '(utf-8 . utf-8))
-;;(setq-default pathname-coding-system 'utf-8)
-;;(set-file-name-coding-system 'utf-8)
-;;(setq ansi-color-for-comint-mode t)
-;; don't work with shell-mode
+;;; 设置中文字体--微软雅黑
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+		    charset
+		    (font-spec :family "Microsoft YaHei" :size 15)))
+(setq default-buffer-file-coding-system 'utf-8-emacs)
+
+;;; backup
+(setq backup-directory-alist '(("." . "~/.backup")))
+(setq backup-by-copying t)
 
 ;; ----- auto load .el in "~/my-init"
 (mapc 'load (directory-files "~/my-init" t "\\.el$"))
+ 

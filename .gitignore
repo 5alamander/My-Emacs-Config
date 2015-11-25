@@ -221,3 +221,9 @@ News/
 .emacs.d/ido.last
 .emacs-bmk-bmenu-state.el
 .emacs
+.backup
+.emacs.d/bookmarks
+.emacs.d/smex-items
+.emacs.d/ido.last
+.emacs.d/eshell/lastdir
+.emacs.d/eshell/history
