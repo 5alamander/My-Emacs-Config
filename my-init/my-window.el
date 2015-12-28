@@ -69,6 +69,11 @@ If no window is at direction DIR, an error is signaled."
       (shrink-window arg)
     (enlarge-window arg)))
 
+;;; ----- winner mode
+(winner-mode 1)
+;; (global-set-key (kbd "<escape> u") 'winner-undo)
+;; (global-set-key (kbd "<escape> U") 'winner-redo)
+
 (global-set-key
  (kbd "<f9>")
  (defhydra hydra-window (:color amaranth)
@@ -94,19 +99,15 @@ If no window is at direction DIR, an error is signaled."
    ("i" windmove-up nil)
    ("l" windmove-right nil)
    ;; ("<left>" windmove-left nil)
-   ("<S-left>" hydra-move-splitter-left nil)
-   ("<S-down>" hydra-move-splitter-down nil)
-   ("<S-up>" hydra-move-splitter-up nil)
-   ("<S-right>" hydra-move-splitter-right nil)
+   ;; ("<S-left>" hydra-move-splitter-left nil)
+   ;; ("<S-down>" hydra-move-splitter-down nil)
+   ;; ("<S-up>" hydra-move-splitter-up nil)
+   ;; ("<S-right>" hydra-move-splitter-right nil)
 ;   ("C-a" ace-window nil)
-   ("u" hydra--universal-argument nil)
+   ("u" winner-undo nil)
+   ("r" winner-redo nil)
 ;   ("C-s" (lambda () (interactive) (ace-window 4)) nil)
 ;   ("C-d" (lambda () (interactive) (ace-window 16)) nil)
    ("SPC" nil "quit")))
-
-;;; ----- winner mode
-(winner-mode 1)
-(global-set-key (kbd "<escape> u") 'winner-undo)
-(global-set-key (kbd "<escape> U") 'winner-redo)
 
 (provide 'my-window)

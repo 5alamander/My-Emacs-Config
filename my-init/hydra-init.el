@@ -63,110 +63,113 @@ _h_tml    ^ ^         ^ ^             _A_SCII:
 	    (hydra-org-template/body))	    
         (self-insert-command 1)))))	; else self insert
 
-;; -------------------------------------------------------
-(defun hydra-beginning-of-sexp ()
-  (interactive)
-  (thing-at-point--beginning-of-sexp))
-(defun hydra-end-of-sexp ()
-  (interactive)
-  (thing-at-point--end-of-sexp))
+
+
 
 ;; -------------------------------------------------------
-;; vi-move.
-(defhydra hydra-vi (:pre (set-cursor-color "#ffffff")
-			 :post (progn
-				 (set-cursor-color "#4f94cd")
-				 (message "Thank you, come again.")))
-  "vi-<hi>-move"
-  ;; move
-  ("l" forward-char "forward")
-  ("j" backward-char "backward")
-  ("k" next-line "down")
-  ("i" previous-line "up")
-  ("a" beginning-of-line nil)
-  ("e" end-of-line nil)
-  
-  ;; move in word
-  ("M-l" forward-word nil)		;<M-f>
-  ("M-j" backward-word nil)		;<M-b>
-  ("M-i" backward-paragraph nil)	;<M-{>
-  ("M-k" forward-paragraph nil)		;<M-}>
-  ("M-e" forward-sentence nil)		;<M-e>
-  ("M-a" backward-sentence nil)		;<M-a>
-  
-  ;; move in sexp
-  ("L" forward-sexp nil)		;<C-M-f>
-  ("J" backward-sexp nil)		;<C-M-b>
-  ("K" down-list nil)			;<C-M-d>
-  ("I" backward-up-list nil)		;<C-M-u>
-  ("A" hydra-beginning-of-sexp nil)
-  ("E" hydra-end-of-sexp nil)
-  
-  ("SPC" nil "quit"))
-(global-set-key (kbd "<f8>") 'hydra-vi/body)
+;; (defun hydra-beginning-of-sexp ()
+;;   (interactive)
+;;   (thing-at-point--beginning-of-sexp))
+;; (defun hydra-end-of-sexp ()
+;;   (interactive)
+;;   (thing-at-point--end-of-sexp))
 
-;; -------------------------------------------------------
-;; em-move.
-(defhydra hydra-em-move (:pre (set-cursor-color "#ffffff")
-				   :post (progn
-					   (set-cursor-color "#4f94cd")
-					   (message "exit hydra-em-move-char")))
-  "em-move-char"
-  ("f" forward-char "forward")		;<C-f>
-  ("b" backward-char "backward")	;<C-b>
-  ("n" next-line "down")		;<C-n>
-  ("p" previous-line "up")		;<C-p>
-  ("a" beginning-of-line)		;<C-a>
-  ("e" end-of-line)			;<C-e>
-
-  ("M-f" forward-word)			;<M-f>
-  ("M-b" backward-word)			;<M-b>
-  ("M-p" backward-paragraph)		;<M-{>, <M-p> is undefined
-  ("M-n" forward-paragraph)		;<M-}>, <M-n> is undefined
-  ("M-e" forward-sentence)		;<M-e>
-  ("M-a" backward-sentence)		;<M-a>
-
-  ("F" forward-sexp)		;<C-M-f>
-  ("B" backward-sexp)		;<C-M-b>
-  ("D" down-list)		;<C-M-d>,
-  ("U" backward-up-list)	;<C-M-u>, 
-  ("N" forward-list)		;<C-M-n> is forward-list 
-  ("P" backward-list)		;<C-M-p> is backward-list
-  ("A" hydra-beginning-of-sexp) ;new defined, <C-M-a> is beginning-of-defun
-  ("E" hydra-end-of-sexp )	;new defined, <C-M-e> is end-of-defun
+;; ;; -------------------------------------------------------
+;; ;; vi-move.
+;; (defhydra hydra-vi (:pre (set-cursor-color "#ffffff")
+;; 			 :post (progn
+;; 				 (set-cursor-color "#4f94cd")
+;; 				 (message "Thank you, come again.")))
+;;   "vi-<hi>-move"
+;;   ;; move
+;;   ("l" forward-char "forward")
+;;   ("j" backward-char "backward")
+;;   ("k" next-line "down")
+;;   ("i" previous-line "up")
+;;   ("a" beginning-of-line nil)
+;;   ("e" end-of-line nil)
   
-  ("SPC" nil "quit"))
-(global-set-key (kbd "<f7>") 'hydra-em-move/body)
-
-(defhydra hydra-em-move-word (:pre (set-cursor-color "#ffffff")
-				   :post (progn
-					   (set-cursor-color "#4f94cd")
-					   (message "exit hydra-em-move-word")))
-  "em-move-word"
-  ("f" forward-word)			;<M-f>
-  ("b" backward-word)			;<M-b>
-  ("p" backward-paragraph)		;<M-{>, <M-p> is undefined
-  ("n" forward-paragraph)		;<M-}>, <M-n> is undefined
-  ("e" forward-sentence)		;<M-e>
-  ("a" backward-sentence)		;<M-a>
+;;   ;; move in word
+;;   ("M-l" forward-word nil)		;<M-f>
+;;   ("M-j" backward-word nil)		;<M-b>
+;;   ("M-i" backward-paragraph nil)	;<M-{>
+;;   ("M-k" forward-paragraph nil)		;<M-}>
+;;   ("M-e" forward-sentence nil)		;<M-e>
+;;   ("M-a" backward-sentence nil)		;<M-a>
   
-  ("SPC" nil "quit"))
-
-(defhydra hydra-em-move-sexp (:pre (set-cursor-color "#ffffff")
-				   :post (progn
-					   (set-cursor-color "#4f94cd")
-					   (message "exit hydra-em-move-word")))
-  "em-move-sexp"
-  ("f" forward-sexp "f-sexp")		;<C-M-f>
-  ("b" backward-sexp "b-sexp")		;<C-M-b>
-  ("d" down-list "d-list")		;<C-M-d>
-  ("u" backward-up-list "u-list")	;<C-M-u>
-  ("a" hydra-beginning-of-sexp "a-sexp") ;new defined
-  ("e" hydra-end-of-sexp "e-sexp")	 ;new defined
+;;   ;; move in sexp
+;;   ("L" forward-sexp nil)		;<C-M-f>
+;;   ("J" backward-sexp nil)		;<C-M-b>
+;;   ("K" down-list nil)			;<C-M-d>
+;;   ("I" backward-up-list nil)		;<C-M-u>
+;;   ("A" hydra-beginning-of-sexp nil)
+;;   ("E" hydra-end-of-sexp nil)
   
-  ("SPC" nil "quit"))
+;;   ("SPC" nil "quit"))
+;; (global-set-key (kbd "<f8>") 'hydra-vi/body)
 
-;;; search
+;; ;; -------------------------------------------------------
+;; ;; em-move.
+;; (defhydra hydra-em-move (:pre (set-cursor-color "#ffffff")
+;; 				   :post (progn
+;; 					   (set-cursor-color "#4f94cd")
+;; 					   (message "exit hydra-em-move-char")))
+;;   "em-move-char"
+;;   ("f" forward-char "forward")		;<C-f>
+;;   ("b" backward-char "backward")	;<C-b>
+;;   ("n" next-line "down")		;<C-n>
+;;   ("p" previous-line "up")		;<C-p>
+;;   ("a" beginning-of-line)		;<C-a>
+;;   ("e" end-of-line)			;<C-e>
+
+;;   ("M-f" forward-word)			;<M-f>
+;;   ("M-b" backward-word)			;<M-b>
+;;   ("M-p" backward-paragraph)		;<M-{>, <M-p> is undefined
+;;   ("M-n" forward-paragraph)		;<M-}>, <M-n> is undefined
+;;   ("M-e" forward-sentence)		;<M-e>
+;;   ("M-a" backward-sentence)		;<M-a>
+
+;;   ("F" forward-sexp)		;<C-M-f>
+;;   ("B" backward-sexp)		;<C-M-b>
+;;   ("D" down-list)		;<C-M-d>,
+;;   ("U" backward-up-list)	;<C-M-u>, 
+;;   ("N" forward-list)		;<C-M-n> is forward-list 
+;;   ("P" backward-list)		;<C-M-p> is backward-list
+;;   ("A" hydra-beginning-of-sexp) ;new defined, <C-M-a> is beginning-of-defun
+;;   ("E" hydra-end-of-sexp )	;new defined, <C-M-e> is end-of-defun
+  
+;;   ("SPC" nil "quit"))
+;; (global-set-key (kbd "<f7>") 'hydra-em-move/body)
+
+;; (defhydra hydra-em-move-word (:pre (set-cursor-color "#ffffff")
+;; 				   :post (progn
+;; 					   (set-cursor-color "#4f94cd")
+;; 					   (message "exit hydra-em-move-word")))
+;;   "em-move-word"
+;;   ("f" forward-word)			;<M-f>
+;;   ("b" backward-word)			;<M-b>
+;;   ("p" backward-paragraph)		;<M-{>, <M-p> is undefined
+;;   ("n" forward-paragraph)		;<M-}>, <M-n> is undefined
+;;   ("e" forward-sentence)		;<M-e>
+;;   ("a" backward-sentence)		;<M-a>
+  
+;;   ("SPC" nil "quit"))
+
+;; (defhydra hydra-em-move-sexp (:pre (set-cursor-color "#ffffff")
+;; 				   :post (progn
+;; 					   (set-cursor-color "#4f94cd")
+;; 					   (message "exit hydra-em-move-word")))
+;;   "em-move-sexp"
+;;   ("f" forward-sexp "f-sexp")		;<C-M-f>
+;;   ("b" backward-sexp "b-sexp")		;<C-M-b>
+;;   ("d" down-list "d-list")		;<C-M-d>
+;;   ("u" backward-up-list "u-list")	;<C-M-u>
+;;   ("a" hydra-beginning-of-sexp "a-sexp") ;new defined
+;;   ("e" hydra-end-of-sexp "e-sexp")	 ;new defined
+  
+;;   ("SPC" nil "quit"))
+
+;; ;;; search
 
 
 (provide 'hydra-init)

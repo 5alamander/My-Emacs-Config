@@ -34,20 +34,18 @@ If the file is emacs lisp, run the byte compiled version if exist."
 	  (save-buffer))))
     (if (string-equal fSuffix "el")
 	(progn
-	  (load (file-name-sans-extension fName))
-         )
+	  (load (file-name-sans-extension fName)))
       (if progName
 	  (progn
 	    (message "Running %s ..." fName)
 	    (shell-command cmdStr "*run-current-file output*")
 ;            (pop-to-buffer "*run-current-file output*")
             )
-	(message "No recognized program file suffix for this file.")))
-    ))
+	(message "No recognized program file suffix for this file.")))))
 
 ;; eval and replace
 (defun eval-and-replace ()
-  "Replace the preceding sexp with its value"
+  "Replace the preceding sexp with it's value"
   (interactive)
   (backward-kill-sexp)
   (condition-case nil
@@ -55,3 +53,47 @@ If the file is emacs lisp, run the byte compiled version if exist."
 	     (current-buffer))
     (error (message "Invalid expression")
 	   (insert (current-kill 0)))))
+
+(defun es-search*sa1 (input)
+  "this method need `everything' installed, and add `es' to the path"
+  (interactive "sSearch:")
+  (shell-command (concat "es " input)
+		 "*es search result*")
+  (pop-to-buffer "*es search result*"))
+
+;;; buffer copy name or directory
+(defun copy-buffer-name*sa1 (choice)
+  "Copy the buffer-file-name to the kill-ring"
+  (interactive "cCopy Buffer Name (F) Full, (D) Directory, (N) Name")
+  (let ((new-kill-string)
+	(name (if (eq major-mode 'dired-mode)
+		  (dired-get-filename)
+		(or (buffer-file-name) ""))))
+    (cond ((eq choice ?f)
+	   (setq new-kill-string name))
+	  ((eq choice ?d)
+	   (setq new-kill-string (file-name-directory name)))
+	  ((eq choice ?n)
+	   (setq new-kill-string (file-name-nondirectory name)))
+	  (t (message "Quit")))
+    (when new-kill-string
+      (message "%s copied" new-kill-string)
+      (kill-new new-kill-string))))
+
+;;; open windows explorer
+(defun open-buffer-path*sa1 (choice)
+  "Run explorer on the directory of this buffer."
+  (interactive "cOpen directory (I) in, (O) out")
+  (let* ((name (if (eq major-mode 'dired-mode)
+		  (dired-get-filename)
+		(or (buffer-file-name) "")))
+	(file-name (replace-regexp-in-string
+		    "/" "\\" name t t))
+	(directory (replace-regexp-in-string
+		    "/" "\\" (file-name-directory name) t t)))
+    (shell-command
+     (concat "explorer /select,"
+	     (cond ((eq choice ?i) file-name)
+		   ((eq choice ?o) directory))))))
+
+(global-set-key [M-f12] 'open-buffer-path*sa1)

@@ -1,9 +1,25 @@
+(defun str-trim-left (s)
+  "Remove whitespace at the beginning of S."
+  (if (string-match "\\`[ \t\n\r]+" s)
+      (replace-match "" t t s) s))
+
+(defun str-trim-right (s)
+  "Remove whitespace at the end of S."
+  (if (string-match "[ \t\n\r]+\\'" s)
+      (replace-match "" t t s) s))
+
+(defun str-trim (s)
+  "Remove whitespace at the beginning and end of S."
+  (s-trim-left (s-trim-right s)))
+
 ;;------ Melpa
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;;; ------ server
+(server-mode 1)
 ;;------ window 
 (window-divider-mode t)
 ;;theme color
@@ -29,6 +45,8 @@
 	  (lambda () (paredit-mode) (rainbow-delimiters-mode)))
 (add-hook 'eshell-mode-hook
 	  (lambda () (paredit-mode)))
+(add-hook 'slime-repl-mode-hook
+	  (lambda () (paredit-mode) (rainbow-delimiters-mode)))
 
 (setq default-directory "~/");; set defualt file path
 
@@ -77,8 +95,7 @@
        (kill-ring-save (region-beginning) (region-end))
      (progn
        (kill-ring-save (line-beginning-position) (line-end-position))
-       (message "copy line")
-       ))))
+       (message "copy line")))))
 ;; cut line
 (global-set-key
  (kbd "C-w")
@@ -88,26 +105,8 @@
        (kill-region (region-beginning) (region-end))
      (progn
        (kill-region (line-beginning-position) (line-end-position))
-       (message "kill line")
-       ))))
+       (message "kill line")))))
 
-;; ;;------ auto-complete
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-;; ;; ------ yasnippet-color
-;; (require 'yasnippet)			; this did not work
-;; (defface ac-yasnippet-candidate-face
-;;   '((t (:background "sandybrown" :foreground "black")))
-;;   "Face for yasnippet candidate.")
-;; (defface ac-yasnippet-selection-face
-;;   '((t (:background "coral3" :foreground "white")))
-;;   "Face for the yasnippet selected candidate.")
-;; (defvar ac-source-yasnippet
-;;   '((candidates . ac-yasnippet-candidates)
-;;     (action . yas/expand)
-;;     (candidate-face . ac-yasnippet-candidate-face)
-;;     (selection-face . ac-yasnippet-selection-face))
-;;   "Source for Yasnippet.")
 ;;; ------ company ------
 (add-hook 'after-init-hook 'global-company-mode)
 (require 'company)
@@ -115,9 +114,7 @@
 (setq company-idle-delay 0.3)
 
 ;;------ smex
-(global-set-key (kbd "M-x") 'smex)
-;; This is your old M-x.
-;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(global-set-key (kbd "M-x") 'smex);; old command is 'excute-extended-command
 
 ;;; ------ helm
 (global-set-key (kbd "M-X") 'helm-M-x)
@@ -151,12 +148,12 @@
 (setq speedbar-use-images nil)		;show without images
 
 ;; ----- ace jump
-(global-set-key (kbd "<escape> SPC") 'ace-jump-word-mode) ;may delete this
+;; (global-set-key (kbd "<escape> SPC") 'ace-jump-word-mode) ;may delete this
 
 (require 'bookmark+)
-(define-key key-translation-map (kbd "<escape> p") (kbd "C-x p"))
-(define-key key-translation-map (kbd "<escape> j") (kbd "C-x j"))
-(define-key key-translation-map (kbd "<escape> r") (kbd "C-x r"))
+;; (define-key key-translation-map (kbd "<escape> p") (kbd "C-x p"))
+;; (define-key key-translation-map (kbd "<escape> j") (kbd "C-x j"))
+;; (define-key key-translation-map (kbd "<escape> r") (kbd "C-x r"))
 
 (global-set-key (kbd "M-g SPC") 'ace-jump-word-mode)
 (global-set-key (kbd "M-g g") 'ace-jump-line-mode)
@@ -185,25 +182,26 @@
 (defun yas-ido-expand ()
   "Lets you select (and expand) a yasnippet key"
   (interactive)
-    (let ((original-point (point)))
-      (while (and
-              (not (= (point) (point-min) ))
-              (not
-               (string-match "[[:space:]\n]" (char-to-string (char-before)))))
-        (backward-word 1))
+  (let ((original-point (point)))
+    (while (and
+	    (not (= (point) (point-min) ))
+	    (not
+	     (string-match "[[:space:]\n]" (char-to-string (char-before)))))
+      (backward-word 1))
     (let* ((init-word (point))
-           (word (buffer-substring init-word original-point))
-           (list (yas-active-keys)))
+	   (word (buffer-substring init-word original-point))
+	   (list (yas-active-keys)))
       (goto-char original-point)
       (let ((key (remove-if-not
-                  (lambda (s) (string-match (concat "^" word) s)) list)))
-        (if (= (length key) 1)
-            (setq key (pop key))
-          (setq key (ido-completing-read "key: " list nil nil word)))
-        (delete-char (- init-word original-point))
-        (insert key)
-        (yas-expand)))))
+		  (lambda (s) (string-match (concat "^" word) s)) list)))
+	(if (= (length key) 1)
+	    (setq key (pop key))
+	  (setq key (ido-completing-read "key: " list nil nil word)))
+	(delete-char (- init-word original-point))
+	(insert key)
+	(yas-expand)))))
 (define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-ido-expand)
+
 ;; Add yasnippet support for all company backends
 ;; https://github.com/syl20bnr/spacemacs/pull/179
 (defvar company-mode/enable-yas t
@@ -229,13 +227,23 @@
 (with-eval-after-load "js"
   (setq js-indent-level 2))
 
+;; ----- common lisp
+(require 'slime)
+;; (slime-setup '(slime-fancy))
+(setq slime-contribs '(slime-fancy))
+(setq inferior-lisp-program "sbcl")
+(slime-setup)
+
 ;;; ----- common hook
-(defvar common-hook-modes '(coffee-mode js-mode csharp-mode))
+;;; todo change to macro
+(defvar common-hook-modes
+  '(coffee-mode js-mode csharp-mode slime-mode ruby-mode))
 (dolist (mode common-hook-modes)
   (add-hook (intern (concat (symbol-name mode) "-hook"))
 	    (lambda ()
 	      (rainbow-delimiters-mode)
 	      (autopair-mode 1))))
+
 ;; ----- scheme
 ; (setq scheme-program-name "mit-scheme") 
 ; this did not work well in 'mit-scheme'
